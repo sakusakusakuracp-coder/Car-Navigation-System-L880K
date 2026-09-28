@@ -1,0 +1,69 @@
+# L880K OBD2/K-Line通信プロファイルの例
+#
+# status/confirmedが確定するまで、サービスは車体へ何も送信しません。
+# 実車で確認した初期化手順・要求バイト列・応答位置・換算式だけを記載してください。
+
+[profile]
+id = "l880k"
+version = "0"
+status = "TBD"
+confirmed = false
+
+[serial]
+port = "/dev/ttyUSB0"
+# USBシリアル側の速度。車体側K-Line速度とは別に確認します。
+host_baudrate = 38400
+kline_baudrate = 10400
+# portを空にして自動探索する場合は、下記識別子で1台に限定してください。
+# vendor_id = 0x0403
+# product_id = 0x6001
+# serial_number = ""
+
+[frame]
+max_length = 256
+checksum = "none"
+echo_mode = "unknown"
+# response_length = 12
+
+[init]
+timeout_ms = 1000
+retry_limit = 2
+# 初期化波形・要求は実車確認後に追加します。
+# [[init.steps]]
+# action = "write"
+# data = "..."
+# wait_ms = 50
+# expect_prefix = "..."
+
+[timing]
+min_query_gap_ms = 30
+inter_byte_timeout_ms = 80
+retry_limit = 3
+shutdown_timeout_ms = 1000
+
+# 要求は読み取り専用だけを許可します。値は例示であり、未確認のため有効ではありません。
+# [[request]]
+# id = "engine_rpm"
+# key = "engine_rpm"
+# operation = "read"
+# request = "..."
+# 車速・冷却水温など常時必要な項目は ["minimal", "full"]、
+# 車両画面でだけ必要な項目は ["full"] とします。
+# poll_modes = ["full"]
+# service = 0x21
+# data_id = 0x0C
+# priority = 10
+# interval_ms = 500
+# ttl_ms = 1500
+# timeout_ms = 500
+# probe = true
+# response_length = 8
+# negative_is_unsupported = true
+# [request.decode]
+# response_prefix = "..."
+# offset = 0
+# length = 2
+# type = "uint"
+# byteorder = "big"
+# scale = 0.25
+# unit = "rpm"

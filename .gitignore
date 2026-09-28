@@ -1,0 +1,10 @@
+__pycache__/
+.venv-camera/
+*.py[cod]
+
+# Google Drive credentials and runtime catalog must stay local.
+drive-token*.json
+client_secret*.json
+drive_upload.json
+drive-upload.sqlite3*
+drive-credentials.json

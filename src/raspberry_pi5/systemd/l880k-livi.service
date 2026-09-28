@@ -1,0 +1,21 @@
+[Unit]
+Description=L880K LIVI native integration service
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/l880k-car-navigation
+ExecStart=%h/l880k-car-navigation/.venv/bin/python %h/l880k-car-navigation/src/raspberry_pi5/livi_integration_service.py --config %h/.config/l880k-car-navigation/livi.json
+Environment=PYTHONPATH=%h/l880k-car-navigation/src/raspberry_pi5
+Environment=XDG_RUNTIME_DIR=%t
+Environment=PYTHONUNBUFFERED=1
+UMask=0077
+NoNewPrivileges=true
+Restart=on-failure
+RestartSec=2
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

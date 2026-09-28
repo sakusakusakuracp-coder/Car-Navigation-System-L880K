@@ -1,0 +1,19 @@
+[Unit]
+Description=L880K door lock control service
+After=graphical-session.target l880k-obd2.service
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/l880k-car-navigation/src/raspberry_pi5/door_lock_service.py --config %h/.config/l880k-car-navigation/door_lock.json
+Environment=XDG_RUNTIME_DIR=%t
+Environment=PYTHONPATH=%h/l880k-car-navigation/src/raspberry_pi5
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=10
+
+[Install]
+WantedBy=default.target

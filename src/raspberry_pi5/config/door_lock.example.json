@@ -1,0 +1,15 @@
+{
+  "enabled": false,
+  "lock_gpio": null,
+  "unlock_gpio": null,
+  "active_level": null,
+  "release_level": null,
+  "pulse_ms": 300,
+  "max_pulse_ms": 500,
+  "cooldown_ms": 2000,
+  "speed_max_age_ms": 1000,
+  "stopped_threshold_mps": 0.3,
+  "allowed_callers": ["l880k-ui"],
+  "command_ttl_max_ms": 10000,
+  "result_store": "/var/lib/l880k/door-lock-results.json"
+}

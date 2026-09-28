@@ -1,0 +1,34 @@
+[service]
+source = "03 現在地補正"
+socket_path = "/run/user/1000/l880k-position-correction.sock"
+lock_path = "/run/user/1000/l880k-position-correction.lock"
+
+# GPS単独運用ではfalseにする。IMU・車速・リバースを接続して検証するまで変更しない。
+[correction]
+dead_reckoning_enabled = false
+# 校正済みIMU JSON。未設定の場合、補正は開始しない。
+# calibration_path = "/home/pi/.config/l880k-car-navigation/imu-calibration.json"
+# imu_device_id = "imu0"
+fusion_rate_hz = 50.0
+output_max_rate_hz = 5.0
+reorder_delay_ms = 100
+imu_max_age_ms = 200
+speed_max_age_ms = 500
+reverse_max_age_ms = 500
+gps_max_age_ms = 2000
+max_prediction_gap_ms = 100
+max_clock_uncertainty_ms = 50
+dr_max_elapsed_s = 10.0
+dr_max_distance_m = 200.0
+dr_max_error_guard_m = 25.0
+gps_max_accuracy_m = 50.0
+gps_recovery_count = 3
+gps_recovery_window_s = 5.0
+gps_recovery_jump_m = 80.0
+stationary_speed_mps = 0.3
+initial_heading_speed_mps = 2.0
+
+[gpsd]
+enabled = true
+host = "127.0.0.1"
+port = 2947

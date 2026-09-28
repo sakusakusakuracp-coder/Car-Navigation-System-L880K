@@ -1,0 +1,2 @@
+# Raspberry Pi OSでの実機用。Debianのaptパッケージ名・提供版を優先して導入する。
+lgpio>=0.2.2

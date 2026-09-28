@@ -1,0 +1,14 @@
+[service]
+source_socket = "/run/user/1000/l880k-position-correction.sock"
+android_host = "192.168.240.2"
+android_port = 8765
+lock_path = "/run/user/1000/l880k-location-bridge.lock"
+
+[limits]
+max_age_ms = 2000
+max_accuracy_m = 100.0
+bridge_delay_bound_ms = 100
+allow_dead_reckoning = false
+
+# 本番では空欄のままにせず、秘密情報ファイルから読み込む方式へ変更する。
+shared_token = ""

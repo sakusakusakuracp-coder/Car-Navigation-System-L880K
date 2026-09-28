@@ -1,0 +1,21 @@
+{
+  "recording_root": "~/l880k-recordings",
+  "catalog_path": "~/.local/state/l880k/drive-upload.sqlite3",
+  "local_cameras": {"left": 0, "right": 1},
+  "remote_cameras": ["front", "rear"],
+  "gateway_host": "127.0.0.1",
+  "gateway_port": 45050,
+  "width": 1280,
+  "height": 720,
+  "fps": 10,
+  "segment_duration_s": 60,
+  "max_frame_bytes": 400000,
+  "queue_frames": 16,
+  "frame_valid_for_ms": 1500,
+  "low_space_bytes": 536870912,
+  "resume_space_bytes": 1073741824,
+  "segment_max_bytes": 268435456,
+  "shutdown_timeout_s": 20,
+  "reconnect_delay_s": 2,
+  "recording_enabled": true
+}

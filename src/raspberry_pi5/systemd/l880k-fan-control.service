@@ -1,0 +1,19 @@
+[Unit]
+Description=L880K PWM fan control service
+After=graphical-session.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/l880k-car-navigation/src/raspberry_pi5/fan_control_service.py --config %h/.config/l880k-car-navigation/fan_control.json
+Environment=XDG_RUNTIME_DIR=%t
+Environment=PYTHONPATH=%h/l880k-car-navigation/src/raspberry_pi5
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=3
+KillSignal=SIGTERM
+TimeoutStopSec=10
+
+[Install]
+WantedBy=default.target

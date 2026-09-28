@@ -1,0 +1,16 @@
+[Unit]
+Description=L880K Pi 3B sub-controller gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/l880k-car-navigation/src/raspberry_pi5/subcontroller_gateway_service.py --host 0.0.0.0 --port 45050
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=3
+KillSignal=SIGTERM
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

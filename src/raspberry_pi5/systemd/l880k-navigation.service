@@ -1,0 +1,18 @@
+[Unit]
+Description=L880K Waydroid navigation manager
+After=graphical-session.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/l880k-car-navigation/src/raspberry_pi5/waydroid_navigation_manager.py --config %h/.config/l880k-car-navigation/navigation.json
+Environment=XDG_RUNTIME_DIR=%t
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=3
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

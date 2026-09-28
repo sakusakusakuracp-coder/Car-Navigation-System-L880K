@@ -1,0 +1,27 @@
+{
+  "request_limit": 128,
+  "max_output": 32768,
+  "timeouts": {
+    "container": 8,
+    "session": 8,
+    "app": 8,
+    "visibility": 3,
+    "stop_app": 5,
+    "stop_session": 5,
+    "stop_container": 5
+  },
+  "recovery": {
+    "max_attempts": 3,
+    "base_delay": 2,
+    "max_delay": 30
+  },
+  "packages": {},
+  "commands": {},
+  "resource_record": {},
+  "ipc": {
+    "socket_path": "/run/user/1000/l880k-navigation.sock",
+    "lock_path": "/run/user/1000/l880k-navigation.lock",
+    "mode": "json_lines",
+    "max_line_bytes": 65536
+  }
+}

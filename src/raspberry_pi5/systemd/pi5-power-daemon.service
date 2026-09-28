@@ -1,0 +1,18 @@
+[Unit]
+Description=L880K Pi 5 notification service GPIO (not halt acknowledgement)
+After=basic.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+Environment=PI5_STATUS_GPIO=26
+ExecStart=/usr/bin/python3 /opt/copen-navi/pi5_power_daemon.py
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

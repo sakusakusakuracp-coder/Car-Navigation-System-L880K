@@ -1,0 +1,16 @@
+[Unit]
+Description=L880K Pi 3B sub-controller 2 front camera and turn signals
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/l880k-car-navigation/src/raspberry_pi3b/sub_controller2_service.py --config %h/.config/l880k-car-navigation/subcontroller2.json
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=3
+KillSignal=SIGTERM
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

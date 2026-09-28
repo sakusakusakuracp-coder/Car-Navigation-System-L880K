@@ -1,0 +1,22 @@
+{
+  "enabled": false,
+  "pwm_gpio": 18,
+  "tach_gpio": 20,
+  "pwm_frequency_hz": 25000,
+  "pwm_backend": "kernel",
+  "pwm_chip_path": "/sys/class/pwm/pwmchip0",
+  "pwm_channel": 0,
+  "pulses_per_revolution": 2,
+  "control_period_ms": 1000,
+  "tach_window_ms": 1000,
+  "start_duty": 0.35,
+  "low_temperature_c": 55.0,
+  "high_temperature_c": 70.0,
+  "fail_safe_temperature_c": 85.0,
+  "low_duty": 0.25,
+  "high_duty": 0.75,
+  "max_duty": 1.0,
+  "tach_min_rpm": 250.0,
+  "tach_grace_ms": 3000,
+  "temperature_path": "/sys/class/thermal/thermal_zone0/temp"
+}

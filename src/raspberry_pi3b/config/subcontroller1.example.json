@@ -1,0 +1,17 @@
+{
+  "configuration_state": "candidate",
+  "peer": {"host": "192.168.10.10", "port": 45050},
+  "reverse_signal": {
+    "gpio": 23,
+    "active_level": 1,
+    "poll_ms": 50,
+    "debounce_ms": 100,
+    "max_read_gap_ms": 500
+  },
+  "camera": {
+    "width": 1280,
+    "height": 720,
+    "fps": 15,
+    "max_frame_bytes": 400000
+  }
+}

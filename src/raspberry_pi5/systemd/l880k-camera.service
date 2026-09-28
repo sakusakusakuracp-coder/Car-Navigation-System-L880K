@@ -1,0 +1,23 @@
+[Unit]
+Description=L880K camera capture and recording
+After=network.target l880k-subcontroller-gateway.service
+Wants=l880k-subcontroller-gateway.service
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=%h/l880k-car-navigation
+ExecStart=%h/l880k-car-navigation/.venv/bin/python %h/l880k-car-navigation/src/raspberry_pi5/camera_service.py --config %h/.config/l880k-car-navigation/camera.json
+Environment=PYTHONPATH=%h/l880k-car-navigation/src/raspberry_pi5
+Environment=XDG_RUNTIME_DIR=%t
+Environment=PYTHONUNBUFFERED=1
+UMask=0077
+NoNewPrivileges=true
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

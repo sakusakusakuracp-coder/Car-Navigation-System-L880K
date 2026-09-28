@@ -1,0 +1,19 @@
+{
+  "enabled": false,
+  "auto_delete_enabled": false,
+  "exclusive_recording_root": false,
+  "recording_root": "~/l880k-recordings",
+  "catalog_path": "~/.local/state/l880k/drive-upload.sqlite3",
+  "credential_path": "~/.config/l880k-car-navigation/drive-token.json",
+  "account_ref": "",
+  "folder_id": "",
+  "allowed_profile_ids": [],
+  "chunk_bytes": 1048576,
+  "daily_byte_budget": 1073741824,
+  "bandwidth_bytes_per_second": 1048576,
+  "io_timeout_s": 15,
+  "poll_interval_s": 2,
+  "retry_base_s": 10,
+  "retry_max_s": 600,
+  "max_retries": 8
+}

@@ -1,0 +1,25 @@
+[Unit]
+Description=L880K Google Drive recording upload
+After=network.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=%h/l880k-car-navigation
+ExecStart=%h/l880k-car-navigation/.venv/bin/python %h/l880k-car-navigation/src/raspberry_pi5/drive_upload_service.py --config %h/.config/l880k-car-navigation/drive_upload.json run
+Environment=PYTHONPATH=%h/l880k-car-navigation/src/raspberry_pi5
+Environment=XDG_RUNTIME_DIR=%t
+Environment=PYTHONUNBUFFERED=1
+UMask=0077
+NoNewPrivileges=true
+Restart=on-failure
+RestartSec=10
+KillSignal=SIGTERM
+TimeoutStopSec=90
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=default.target

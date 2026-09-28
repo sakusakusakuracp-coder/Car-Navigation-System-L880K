@@ -1,0 +1,17 @@
+{
+  "executable": "/opt/LIVI/livi",
+  "args": [],
+  "working_directory": "/opt/LIVI",
+  "display_backend": "sway",
+  "window_identifiers": ["LIVI", "livi"],
+  "command_log": "/tmp/l880k-livi.log",
+  "ipc": {
+    "max_line_bytes": 65536
+  },
+  "timeouts": {
+    "startup": 1.0,
+    "window": 15.0,
+    "visibility": 3.0,
+    "stop": 3.0
+  }
+}

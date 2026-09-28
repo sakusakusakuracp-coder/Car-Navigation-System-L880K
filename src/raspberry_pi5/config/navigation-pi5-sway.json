@@ -1,0 +1,39 @@
+{
+  "default_navigation_mode": "osmand",
+  "timeouts": {
+    "container": 8,
+    "session": 45,
+    "app": 30,
+    "visibility": 15,
+    "stop_app": 5,
+    "stop_session": 5,
+    "stop_container": 5
+  },
+  "packages": {
+    "navigation": "net.osmand.plus"
+  },
+  "app_launch_retries": 5,
+  "app_launch_retry_interval": 2.0,
+  "window_ready_delay": 3.0,
+  "display_backend": "sway",
+  "navigation_window_identifiers": ["waydroid.net.osmand.plus", "net.osmand.plus", "OsmAnd"],
+  "waydroid_home_window_identifiers": ["Waydroid", "waydroid.com.android.launcher3", "com.android.launcher3"],
+  "command_log": "/tmp/l880k-navigation-commands.log",
+  "obd2_socket_path": "/run/user/1000/l880k-obd2.sock",
+  "position_socket_path": "/run/user/1000/l880k-position-correction.sock",
+  "commands": {
+    "container_start": ["true"],
+    "session_status": ["/usr/bin/waydroid", "status"],
+    "navigation": ["/usr/bin/waydroid", "app", "launch", "net.osmand.plus"],
+    "activate_home": ["/usr/bin/sudo", "-n", "/usr/bin/waydroid", "shell", "input", "keyevent", "KEYCODE_HOME"],
+    "show_window": ["/usr/bin/waydroid", "show-full-ui"],
+    "show_home_window": ["/usr/bin/waydroid", "show-full-ui"],
+    "hide_window": ["true"]
+  },
+  "ipc": {
+    "socket_path": "/run/user/1000/l880k-navigation.sock",
+    "lock_path": "/run/user/1000/l880k-navigation.lock",
+    "mode": "json_lines",
+    "max_line_bytes": 65536
+  }
+}
